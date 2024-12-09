@@ -1,0 +1,11 @@
+@import './config';
+
+html,
+body {
+  height: 100%;
+  // background-color: $c-primary-400;
+  @include Inter();
+  // font-weight: 400;
+  // line-height: 1.5;
+  // color: $c-shades-100;
+}

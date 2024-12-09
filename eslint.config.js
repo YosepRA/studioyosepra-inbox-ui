@@ -1,11 +1,24 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+import path from 'path';
+import { fileURLToPath } from 'url';
+import js from '@eslint/js';
+import { FlatCompat } from '@eslint/eslintrc';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
 
 export default [
   { ignores: ['dist'] },
+  eslintPluginPrettierRecommended,
+  ...compat.extends('airbnb'),
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -33,6 +46,21 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'react/jsx-one-expression-per-line': ['error', { allow: 'literal' }],
+      'no-console': ['warn'],
+      'import/extensions': ['error', 'always', { ignorePackages: true }],
+      'import/no-unresolved': 'off',
+      'import/no-extraneous-dependencies': 'off',
+      'prettier/prettier': [
+        'error',
+        {
+          singleQuote: true,
+          semi: true,
+          arrowParens: 'always',
+          endOfLine: 'auto',
+          trailingComma: 'all',
+        },
+      ],
     },
   },
-]
+];
