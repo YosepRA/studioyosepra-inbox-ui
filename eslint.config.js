@@ -48,6 +48,8 @@ export default [
       ],
       'react/jsx-one-expression-per-line': ['error', { allow: 'literal' }],
       'no-console': ['warn'],
+      'no-param-reassign': 'off',
+      'object-curly-newline': 'off',
       'import/extensions': ['error', 'always', { ignorePackages: true }],
       'import/no-unresolved': 'off',
       'import/no-extraneous-dependencies': 'off',

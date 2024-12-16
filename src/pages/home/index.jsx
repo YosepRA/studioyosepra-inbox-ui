@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,7 +8,7 @@ import Card from 'react-bootstrap/Card';
 const Home = function HomeComponent() {
   return (
     <Container>
-      <Row xs={1} md={2} lg={3}>
+      <Row xs={1} md={2} lg={3} className="gy-2">
         <Col>
           <Card>
             <Card.Body>
@@ -23,7 +24,9 @@ const Home = function HomeComponent() {
                 ullam facilis.
               </Card.Text>
 
-              <Card.Link href="#">Card Link</Card.Link>
+              <Card.Link as={Link} to="/message/123">
+                Details
+              </Card.Link>
             </Card.Body>
           </Card>
         </Col>
@@ -31,16 +34,21 @@ const Home = function HomeComponent() {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>John Doe</Card.Title>
+
               <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
+                johndoe@mail.com
               </Card.Subtitle>
+
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card&apos;s content.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+                nobis eos qui ullam quibusdam perferendis. Ipsam sequi earum
+                ullam facilis.
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+
+              <Card.Link as={Link} to="/message/123">
+                Details
+              </Card.Link>
             </Card.Body>
           </Card>
         </Col>
@@ -48,16 +56,21 @@ const Home = function HomeComponent() {
         <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>John Doe</Card.Title>
+
               <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
+                johndoe@mail.com
               </Card.Subtitle>
+
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card&apos;s content.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+                nobis eos qui ullam quibusdam perferendis. Ipsam sequi earum
+                ullam facilis.
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+
+              <Card.Link as={Link} to="/message/123">
+                Details
+              </Card.Link>
             </Card.Body>
           </Card>
         </Col>

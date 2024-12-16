@@ -20,9 +20,10 @@ const MessageDetails = function MessageDetailsComponent() {
       <section className="message">
         <Container>
           <Row>
-            <Col>
-              <div className="message-sender">
-                <p></p>
+            <Col xs={12}>
+              <div className={styles.sender}>
+                <p className={styles.senderName}>John Doe</p>
+                <p className={styles.senderEmail}>johndoe@mail.com</p>
               </div>
             </Col>
           </Row>
