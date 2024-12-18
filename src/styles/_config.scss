@@ -1,4 +1,4 @@
-@use 'bootstrap/scss/mixins/breakpoints';
+@forward 'bootstrap/scss/mixins/breakpoints';
 
 $c-primary-200: #a3a8a8;
 $c-primary-300: #565c5c;
@@ -41,7 +41,6 @@ $footer-margin-top: 80px;
 
 /* =============== Typography =============== */
 
-// @use 'typography';
 @forward 'typography';
 
 /* =============== Utilities =============== */

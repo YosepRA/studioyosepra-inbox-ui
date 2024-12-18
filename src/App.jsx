@@ -13,12 +13,12 @@ const App = function AppComponent() {
     <Router>
       <Routes>
         <Route element={<IndexLayout />}>
-          <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
 
           <Route path="message/:id" element={<MessageDetails />} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </Router>
   );

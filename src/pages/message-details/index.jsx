@@ -1,75 +1,78 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
+import {
+  selectMessageDetails,
+  fetchMessageDetails,
+  resetMessageDetails,
+} from '@Features/message/message-slice.js';
+
 import styles from './styles/message-details.module.scss';
 
 const MessageDetails = function MessageDetailsComponent() {
+  const { message } = useSelector(selectMessageDetails);
+  const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function loadMessage() {
+      dispatch(fetchMessageDetails(id));
+    }
+
+    loadMessage();
+
+    return () => dispatch(resetMessageDetails());
+  }, [id, dispatch]);
 
   const handleGoBack = () => {
     navigate(-1);
   };
 
   return (
-    <>
-      <section className="message">
-        <Container>
-          <Row>
-            <Col xs={12}>
-              <div className={styles.sender}>
-                <p className={styles.senderName}>John Doe</p>
-                <p className={styles.senderEmail}>johndoe@mail.com</p>
-              </div>
-            </Col>
-          </Row>
+    <section className="message">
+      {message !== null && (
+        <>
+          <div className="message-details">
+            <Container>
+              <Row>
+                <Col xs={12}>
+                  <div className={styles.sender}>
+                    <p className={styles.senderName}>{message.name}</p>
+                    <p className={styles.senderEmail}>{message.email}</p>
+                  </div>
+                </Col>
+              </Row>
 
-          <Row>
-            <Col>
-              <div className="message-body">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Molestias nostrum optio architecto accusantium explicabo
-                  quisquam corrupti, eum, cupiditate rerum vero eveniet
-                  aspernatur voluptatibus placeat reprehenderit amet libero,
-                  ratione dicta nemo.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Soluta sint aliquid quod saepe exercitationem sit iste ducimus
-                  amet itaque earum!
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-                  obcaecati facere voluptatem natus ullam cumque id incidunt
-                  quam officia! Tenetur nobis dicta dignissimos facere dolores
-                  perspiciatis tempora aliquid amet. Labore ipsa optio nostrum
-                  sapiente, voluptate eius? Placeat, consequuntur ipsam ea
-                  exercitationem eaque deleniti fugit veniam illum minus natus
-                  quia repellat!
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+              <Row>
+                <Col>
+                  <div className="message-body">
+                    <p>{message.body}</p>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
 
-      <section className="message-nav">
-        <Container>
-          <Row>
-            <Col>
-              <Button variant="primary" onClick={handleGoBack}>
-                Back
-              </Button>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-    </>
+          <div className="message-nav">
+            <Container>
+              <Row>
+                <Col>
+                  <Button variant="primary" onClick={handleGoBack}>
+                    Back
+                  </Button>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        </>
+      )}
+    </section>
   );
 };
 

@@ -49,7 +49,7 @@ export const messageSlice = createSlice({
     builder
       .addCase(
         fetchMessageList.fulfilled,
-        (state, { docs, page, totalDocs, totalPages }) => {
+        (state, { payload: { docs, page, totalDocs, totalPages } }) => {
           state.list = docs;
           state.page = page;
           state.total = totalDocs;
@@ -60,17 +60,20 @@ export const messageSlice = createSlice({
       .addCase(fetchMessageList.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchMessageDetails.fulfilled, (state, action) => {
-        state.message = action.payload;
-        state.status = 'idle';
-      })
+      .addCase(
+        fetchMessageDetails.fulfilled,
+        (state, { payload: { data } }) => {
+          state.message = data;
+          state.status = 'idle';
+        },
+      )
       .addCase(fetchMessageDetails.pending, (state) => {
         state.status = 'loading';
       });
   },
 });
 
-export const { setLoadingStatus } = messageSlice.actions;
+export const { setLoadingStatus, resetMessageDetails } = messageSlice.actions;
 
 export default messageSlice.reducer;
 
