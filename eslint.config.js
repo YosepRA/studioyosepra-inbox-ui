@@ -47,6 +47,7 @@ export default [
         { allowConstantExport: true },
       ],
       'react/jsx-one-expression-per-line': ['error', { allow: 'non-jsx' }],
+      'react/prop-types': 'off',
       'no-console': ['warn'],
       'no-param-reassign': 'off',
       'object-curly-newline': 'off',

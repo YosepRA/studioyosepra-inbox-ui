@@ -1,0 +1,24 @@
+@use '@Styles/config';
+
+.main-navbar {
+  position: fixed;
+  top: 0;
+  z-index: config.$z-three;
+  width: 100%;
+  padding: 14px 0;
+  background-color: config.$c-primary-500;
+  line-height: 0;
+
+  &-container {
+    text-align: center;
+  }
+
+  &-brand {
+    margin: 0 auto;
+    @include config.CarterOne();
+    font-size: config.$fsz-display-300;
+    color: config.$c-shades-100;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+}

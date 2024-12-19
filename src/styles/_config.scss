@@ -23,6 +23,13 @@ $c-bs-hover: #ffffff;
 $c-bs-active: #0a0b0b;
 $c-bs-disabled: #a9a9a9;
 
+$z-zero: 0;
+$z-one: 1;
+$z-two: 10;
+$z-three: 20;
+$z-four: 30;
+$z-five: 40;
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -32,10 +39,10 @@ $grid-breakpoints: (
   xxl: 1400px,
 );
 
-$border-radius: 3px;
+$border-radius: 5px;
 /* Navbar and footer heights are determined from the element size results on
 render. Values are adjusted according to screen sizes. */
-$navbar-height: 58px;
+$navbar-height: 44px;
 $footer-height: 69px;
 $footer-margin-top: 80px;
 
@@ -68,6 +75,10 @@ $footer-margin-top: 80px;
 
 @mixin textShadow {
   text-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
+}
+
+@mixin cardShadow {
+  box-shadow: 0 6px 12px rgba($c-shades-1000, 0.25);
 }
 
 /* =============== Components =============== */
@@ -105,13 +116,22 @@ $footer-margin-top: 80px;
 
 @mixin secondaryIconButton {
   @include iconButton();
-  background-color: $c-primary-500;
+  background-color: $c-bs-default;
   color: $c-shades-100;
-  border: 2px solid $c-shades-100;
+  @include cardShadow();
 }
 
 @mixin primaryButtonLink {
   @include primaryButton();
+
+  & {
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+@mixin secondaryIconButtonLink {
+  @include secondaryIconButton();
 
   & {
     text-align: center;

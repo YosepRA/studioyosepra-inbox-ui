@@ -3,11 +3,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import mainStyles from '@Styles/main.module.scss';
+import styles from './styles/main-footer.module.scss';
 
 const MainFooter = function MainFooterComponent() {
   return (
-    <footer className={mainStyles.mainFooter}>
+    <footer className={styles.mainFooter}>
       <Container>
         <Row>
           <Col xs={12}>

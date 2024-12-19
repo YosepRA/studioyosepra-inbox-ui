@@ -1,5 +1,6 @@
 @use 'config';
 
-.main-footer {
-  margin-top: 80px;
+.main-container {
+  margin-top: config.$navbar-height;
+  padding-top: 24px;
 }

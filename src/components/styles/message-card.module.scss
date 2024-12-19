@@ -1,0 +1,31 @@
+@use '@Styles/config';
+
+.message-card {
+  padding: 14px 10px;
+  background-color: config.$c-primary-500;
+  border-radius: config.$border-radius;
+  @include config.cardShadow();
+
+  &-link-wrapper {
+    text-decoration: none;
+    color: config.$c-shades-100;
+  }
+
+  &-body {
+    margin-bottom: 6px;
+    font-size: config.$fsz-body-300;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &-meta {
+    font-size: config.$fsz-body-200;
+    font-style: italic;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@use '@Styles/config';
+
+.message-list {
+  &-items {
+    margin-bottom: 42px;
+  }
+
+  &-col {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}
