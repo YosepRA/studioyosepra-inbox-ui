@@ -38,7 +38,7 @@ const MessageDetails = function MessageDetailsComponent() {
     <section className="message">
       {message !== null && (
         <>
-          <div className="message-details">
+          <div className={styles.messageDetails}>
             <Container>
               <Row>
                 <Col xs={12}>
@@ -51,7 +51,7 @@ const MessageDetails = function MessageDetailsComponent() {
 
               <Row>
                 <Col>
-                  <div className="message-body">
+                  <div className={styles.body}>
                     <p>{message.body}</p>
                   </div>
                 </Col>
@@ -63,9 +63,13 @@ const MessageDetails = function MessageDetailsComponent() {
             <Container>
               <Row>
                 <Col>
-                  <Button variant="primary" onClick={handleGoBack}>
+                  <button
+                    type="button"
+                    onClick={handleGoBack}
+                    className={styles.goBackButton}
+                  >
                     Back
-                  </Button>
+                  </button>
                 </Col>
               </Row>
             </Container>

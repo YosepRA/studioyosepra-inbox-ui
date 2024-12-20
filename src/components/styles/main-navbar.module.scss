@@ -8,6 +8,7 @@
   padding: 14px 0;
   background-color: config.$c-primary-500;
   line-height: 0;
+  @include config.cardShadow();
 
   &-container {
     text-align: center;

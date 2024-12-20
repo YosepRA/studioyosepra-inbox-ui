@@ -1,13 +1,17 @@
 @use '@Styles/config';
 
-.title {
-  @include config.CarterOne();
+.message {
+  &-details {
+    margin-bottom: 28px;
+  }
 }
 
 .sender {
-  padding-bottom: 8px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid config.$c-primary-400;
+  padding: 8px 10px;
+  margin-bottom: 16px;
+  background-color: config.$c-primary-500;
+  border-radius: config.$border-radius;
+  @include config.cardShadow();
 
   &-name {
     margin-bottom: 8px;
@@ -17,4 +21,16 @@
     margin-bottom: 0;
     font-size: config.$fsz-body-300;
   }
+}
+
+.body {
+  padding: 8px 10px;
+  background-color: config.$c-primary-500;
+  border-radius: config.$border-radius;
+  font-size: config.$fsz-body-300;
+  @include config.cardShadow();
+}
+
+.go-back-button {
+  @include config.secondaryButton();
 }

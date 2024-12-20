@@ -6,16 +6,20 @@ import Col from 'react-bootstrap/Col';
 import styles from './styles/main-footer.module.scss';
 
 const MainFooter = function MainFooterComponent() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className={styles.mainFooter}>
       <Container>
         <Row>
           <Col xs={12}>
-            <h3>StudioYosepRA</h3>
+            <h3 className={styles.mainFooterBrand}>StudioYosepRA</h3>
           </Col>
 
           <Col xs={12}>
-            <p>Copyright 2024 StudioYosepRA. All rights reserved.</p>
+            <p className={styles.mainFooterCopy}>
+              &copy; {currentYear} StudioYosepRA. All rights reserved.
+            </p>
           </Col>
         </Row>
       </Container>

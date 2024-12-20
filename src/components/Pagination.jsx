@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import PaginationBS from 'react-bootstrap/Pagination';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './styles/pagination.module.scss';
 
@@ -14,26 +15,17 @@ function createPaginationItems(page, pageCount) {
         to={{ search: `?page=${prevPageNum}` }}
         className={styles.paginationControl}
       >
-        Prev
+        <FontAwesomeIcon icon="chevron-left" />
       </Link>
+
+      <span className={styles.paginationNumber}>{page}</span>
+
       <Link
         to={{ search: `?page=${nextPageNum}` }}
         className={styles.paginationControl}
       >
-        Next
+        <FontAwesomeIcon icon="chevron-right" />
       </Link>
-
-      <PaginationBS.Prev
-        as={Link}
-        to={{ search: `?page=${prevPageNum}` }}
-        disabled={page === 1}
-      />
-      <PaginationBS.Item>{page}</PaginationBS.Item>
-      <PaginationBS.Next
-        as={Link}
-        to={{ search: `?page=${nextPageNum}` }}
-        disabled={page === pageCount}
-      />
     </>
   );
 }

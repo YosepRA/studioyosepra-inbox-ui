@@ -2,4 +2,19 @@
 
 .main-footer {
   margin-top: 80px;
+  padding: 16px 0;
+  background-color: config.$c-primary-500;
+  line-height: 1.2;
+  @include config.footerShadow();
+
+  &-brand {
+    @include config.CarterOne();
+    margin-bottom: 4px;
+    font-size: config.$fsz-display-400;
+  }
+
+  &-copy {
+    margin-bottom: 0;
+    font-size: config.$fsz-body-200;
+  }
 }

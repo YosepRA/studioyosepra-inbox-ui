@@ -43,7 +43,7 @@ $border-radius: 5px;
 /* Navbar and footer heights are determined from the element size results on
 render. Values are adjusted according to screen sizes. */
 $navbar-height: 44px;
-$footer-height: 69px;
+$footer-height: 67px;
 $footer-margin-top: 80px;
 
 /* =============== Typography =============== */
@@ -81,6 +81,10 @@ $footer-margin-top: 80px;
   box-shadow: 0 6px 12px rgba($c-shades-1000, 0.25);
 }
 
+@mixin footerShadow {
+  box-shadow: 0 -6px 12px rgba($c-shades-1000, 0.25);
+}
+
 /* =============== Components =============== */
 
 @mixin button {
@@ -102,6 +106,7 @@ $footer-margin-top: 80px;
   padding: 6px;
   border-radius: $border-radius;
   background-color: transparent;
+  transition: all 300ms ease-out;
 }
 
 @mixin primaryButton {
@@ -114,19 +119,38 @@ $footer-margin-top: 80px;
   }
 }
 
-@mixin secondaryIconButton {
-  @include iconButton();
-  background-color: $c-bs-default;
-  color: $c-shades-100;
-  @include cardShadow();
-}
-
 @mixin primaryButtonLink {
   @include primaryButton();
 
   & {
     text-align: center;
     text-decoration: none;
+  }
+}
+
+@mixin secondaryButton {
+  @include button();
+  @include cardShadow();
+
+  background-color: $c-bs-default;
+  color: $c-shades-100;
+
+  &:hover {
+    background-color: $c-bs-hover;
+    color: $c-primary-400;
+  }
+}
+
+@mixin secondaryIconButton {
+  @include iconButton();
+  @include cardShadow();
+
+  background-color: $c-bs-default;
+  color: $c-shades-100;
+
+  &:hover {
+    background-color: $c-bs-hover;
+    color: $c-primary-400;
   }
 }
 
