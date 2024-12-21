@@ -1,7 +1,7 @@
 @use '@Styles/config';
 
 .main-footer {
-  margin-top: 80px;
+  margin-top: config.$footer-margin-top-sm;
   padding: 16px 0;
   background-color: config.$c-primary-500;
   line-height: 1.2;
@@ -16,5 +16,31 @@
   &-copy {
     margin-bottom: 0;
     font-size: config.$fsz-body-200;
+  }
+}
+
+/* =============== Breakpoints =============== */
+
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  .main-footer {
+    padding: 20px 0;
+
+    &-brand {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+@include config.media-breakpoint-up(xl, config.$grid-breakpoints) {
+  .main-footer {
+    margin-top: config.$footer-margin-top-xl;
+
+    &-brand {
+      font-size: config.$fsz-display-500;
+    }
+
+    &-copy {
+      font-size: config.$fsz-body-300;
+    }
   }
 }

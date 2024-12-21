@@ -29,8 +29,45 @@
   border-radius: config.$border-radius;
   font-size: config.$fsz-body-300;
   @include config.cardShadow();
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .go-back-button {
   @include config.secondaryButton();
+}
+
+/* =============== Breakpoints =============== */
+
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  .sender {
+    padding: 12px 16px;
+
+    &-name {
+      margin-bottom: 10px;
+    }
+  }
+
+  .body {
+    padding: 12px 16px;
+    font-size: config.$fsz-body-400;
+  }
+}
+
+@include config.media-breakpoint-up(xl, config.$grid-breakpoints) {
+  .message {
+    &-details {
+      margin-bottom: 32px;
+    }
+  }
+
+  .sender {
+    margin-bottom: 24px;
+
+    &-email {
+      font-size: config.$fsz-body-400;
+    }
+  }
 }

@@ -29,3 +29,20 @@
     }
   }
 }
+
+/* =============== Breakpoints =============== */
+
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  .message-card {
+    padding: 16px 20px;
+
+    &-body {
+      margin-bottom: 10px;
+      font-size: config.$fsz-body-400;
+    }
+
+    &-meta {
+      font-size: config.$fsz-body-300;
+    }
+  }
+}

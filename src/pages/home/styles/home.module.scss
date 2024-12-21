@@ -11,3 +11,19 @@
     }
   }
 }
+
+/* =============== Breakpoints =============== */
+
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  .message-list {
+    &-items {
+      margin-bottom: 48px;
+    }
+
+    &-col {
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

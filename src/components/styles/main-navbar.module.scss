@@ -23,3 +23,23 @@
     text-decoration: none;
   }
 }
+
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  .main-navbar {
+    padding: 24px 0;
+
+    &-brand {
+      font-size: config.$fsz-display-400;
+    }
+  }
+}
+
+@include config.media-breakpoint-up(xl, config.$grid-breakpoints) {
+  .main-navbar {
+    padding: 35px 0;
+
+    &-brand {
+      font-size: config.$fsz-display-600;
+    }
+  }
+}

@@ -1,6 +1,26 @@
 @use 'config';
 
 .main-container {
-  min-height: calc(100vh - config.$footer-height - config.$footer-margin-top);
-  padding-top: calc(config.$navbar-height + 24px);
+  min-height: calc(
+    100vh - config.$footer-height-sm - config.$footer-margin-top-sm
+  );
+  padding-top: calc(config.$navbar-height-sm + 24px);
+}
+
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  .main-container {
+    min-height: calc(
+      100vh - config.$footer-height-md - config.$footer-margin-top-md
+    );
+    padding-top: calc(config.$navbar-height-md + 48px);
+  }
+}
+
+@include config.media-breakpoint-up(xl, config.$grid-breakpoints) {
+  .main-container {
+    min-height: calc(
+      100vh - config.$footer-height-xl - config.$footer-margin-top-xl
+    );
+    padding-top: calc(config.$navbar-height-xl + 52px);
+  }
 }
