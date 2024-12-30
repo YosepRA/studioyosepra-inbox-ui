@@ -3,7 +3,7 @@ import axios from 'axios';
 import utils from '@Utils/index.js';
 
 const serverBaseURL =
-  import.meta.env.SERVER_BASE_URL || 'http://localhost:3000';
+  import.meta.env.VITE_SERVER_BASE_URL || 'http://localhost:3000';
 
 const messageAPI = {
   async getMessageList(page, limit = 10, sort = '-createdAt') {
