@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://yosepra.github.io/studioyosepra-inbox-ui",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
