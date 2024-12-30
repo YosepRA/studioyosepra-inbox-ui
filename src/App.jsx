@@ -13,8 +13,10 @@ import '@Styles/root.scss';
 iconLibrary.start();
 
 const App = function AppComponent() {
+  const routerBasePath = import.meta.env.BASE_URL;
+
   return (
-    <Router>
+    <Router basename={routerBasePath}>
       <Routes>
         <Route element={<IndexLayout />}>
           <Route path="/home" element={<Home />} />

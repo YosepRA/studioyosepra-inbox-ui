@@ -22,7 +22,7 @@ export default defineConfig({
   server: {
     port: 8000,
   },
-  base: '/studioyosepra-inbox-ui/',
+  base: '/studioyosepra-inbox-ui',
   css: {
     modules: {
       localsConvention: 'camelCase',
